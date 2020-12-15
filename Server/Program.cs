@@ -27,7 +27,13 @@ namespace DebuggingWithAspNetCoreAndHttpSys.Server
                 {
                     webBuilder.UseStartup<Startup>();
                     // enable httpsys to be able to use Windows authentication
-                    webBuilder.UseHttpSys();
+                    webBuilder.UseHttpSys(options =>
+                    {
+                        options.Authentication.Schemes =
+                            AuthenticationSchemes.NTLM |
+                            AuthenticationSchemes.Negotiate;
+                        options.Authentication.AllowAnonymous = false;
+                    });
                 });
     }
 }
