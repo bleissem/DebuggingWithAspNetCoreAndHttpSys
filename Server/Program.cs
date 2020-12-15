@@ -33,7 +33,6 @@ namespace DebuggingWithAspNetCoreAndHttpSys.Server
                             AuthenticationSchemes.NTLM |
                             AuthenticationSchemes.Negotiate;
                         options.Authentication.AllowAnonymous = false;
-                        options.AllowSynchronousIO = true;
                     });
                 });
     }
